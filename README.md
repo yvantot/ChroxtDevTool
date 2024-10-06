@@ -9,5 +9,6 @@
     <l1>Local language support</l1>
     <li>Boilerplates for starting project on extension developing</li>
     <li>Chrome API reference</li>
-    <li>Content script tools to control active tab behavior</li>    
+    <li>Content script tools to control active tab behavior</li>
+    <li>Favicon feature</li>
 </ol>
