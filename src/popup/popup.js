@@ -2,41 +2,6 @@
 // My biggest regret is using index to identify my data, I will use dataset next time.
 
 (() => {
-	const s_host = document.createElement("div");
-	const s_root = s_host.attachShadow({ mode: "closed" });
-	document.body.appendChild(s_host);
-
-	// Button for clear storage
-	(() => {
-		let storage = chrome.storage.local;
-		const clear_button = document.createElement("button");
-		clear_button.setAttribute(
-			"style",
-			`   position: fixed;
-                top: 0;
-                right: 0;
-                height: 20px;
-                width: 40px;
-                background-color: green;
-                border: 1px solid black;            
-            `
-		);
-		clear_button.addEventListener("click", () => {
-			storage.get(null, (data) => {
-				console.log("Storage before clearing: ");
-				console.log(data);
-				storage.clear(() => {
-					if (chrome.runtime.lastError) {
-						console.error("Storage has not been cleared", chrome.runtime.lastError);
-					} else {
-						storage.get(null, (data) => console.log("Storage successfully cleared: ", data));
-					}
-				});
-			});
-		});
-		s_root.appendChild(clear_button);
-	})();
-
 	// Drag check for checkbox
 	(() => {
 		let is_dragging = false;
@@ -67,6 +32,18 @@ document.addEventListener("visibilitychange", () => {
 	chrome.runtime.sendMessage({ message: "set_data", data: data_placeholder });
 });
 
+document.getElementById("toggle-switch").addEventListener("click", (e) => {
+	data_placeholder.enabled = !data_placeholder.enabled;
+	toggle_button();
+	console.log("From toggle: ", data_placeholder);
+});
+
+function toggle_button() {
+	let toggle_switch = document.getElementById("toggle-switch");
+	data_placeholder.enabled ? (toggle_switch.style.backgroundColor = "#ce2525") : (toggle_switch.style.backgroundColor = "#158938");
+	data_placeholder.enabled ? (toggle_switch.textContent = "Disable") : (toggle_switch.textContent = "Enable");
+}
+
 // Update data_placeholder everytime the checkbox is toggled
 function update_data(checkbox, type, index, method) {
 	if (checkbox.nodeName == "INPUT" && checkbox.type == "checkbox") {
@@ -79,7 +56,7 @@ function update_data(checkbox, type, index, method) {
 }
 
 // Execute script
-document.getElementById("execute-script").addEventListener("click", (e) => {
+document.getElementById("execute-script").addEventListener("click", () => {
 	chrome.runtime.sendMessage({
 		message: "execute_methods",
 		data: data_placeholder,
@@ -97,10 +74,17 @@ function batch_set_attr(node_arr, attr, value) {
 	});
 }
 
-function initialize_data() {
+function initialize_data(callback = null) {
 	chrome.runtime.sendMessage({ message: "get_data" }, (data) => {
 		// Update data_placeholder with the latest data
 		data_placeholder = structuredClone(data);
+		toggle_button();
+		if (data_placeholder.enabled) {
+			chrome.runtime.sendMessage({
+				message: "execute_methods",
+				data: data_placeholder,
+			});
+		}
 		console.log("Popup data: ", data_placeholder);
 		if (data.extensions.length > 0) {
 			let frag_ext = document.createDocumentFragment();

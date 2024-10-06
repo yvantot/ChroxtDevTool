@@ -3,16 +3,27 @@ let storage = chrome.storage.local;
 // Purpose: Get new extensions & tabs data, default if new, otherwise copy methods data from original
 // Return: Return an object, not merged with old data, but with old data essential properties
 // Nutshell: Returns new & updated data
+
+chrome.commands.onCommand.addListener((command) => {
+	switch (command) {
+		case "execute_methods":
+			storage.get(null, (data) => execute_methods(data));
+			break;
+		default:
+			break;
+	}
+});
+
 function get_new_data(callback = null) {
-	let data_placeholder = {
-		extensions: [],
-		websites: [],
-		enabled: false,
-		"show-popup": true,
-	};
 	return new Promise((resolve, reject) => {
 		// Get the current strorage
 		storage.get(null, (data) => {
+			let data_placeholder = {
+				extensions: [],
+				websites: [],
+				enabled: data.enabled ?? true,
+				"show-popup": true,
+			};
 			// Get new extensions and new extension properties
 			chrome.management.getAll((extensions) => {
 				extensions.sort((a, b) => a.name.localeCompare(b.name));
@@ -75,23 +86,7 @@ chrome.runtime.onMessage.addListener((receive, _, send) => {
 			storage.set(receive.data);
 			break;
 		case "execute_methods":
-			receive.data.extensions.forEach((extension) => {
-				if (extension.reload) {
-					chrome.management.setEnabled(extension.ext_id, false);
-					chrome.management.setEnabled(extension.ext_id, true);
-				}
-				if (extension.disable) {
-					chrome.management.setEnabled(extension.ext_id, !extension.enabled);
-				}
-				if (extension.uninstall) {
-					chrome.management.uninstall(extension.ext_id);
-				}
-			});
-			receive.data.websites.forEach((website) => {
-				if (website.reload) {
-					chrome.tabs.reload(website.site_id);
-				}
-			});
+			execute_methods(receive.data);
 			break;
 		default:
 			console.warn("UNHANDLED MESSAGE: ONMESSAGE");
@@ -99,3 +94,23 @@ chrome.runtime.onMessage.addListener((receive, _, send) => {
 	}
 	return true;
 });
+
+function execute_methods(data) {
+	data.extensions.forEach((extension) => {
+		if (extension.reload) {
+			chrome.management.setEnabled(extension.ext_id, false);
+			chrome.management.setEnabled(extension.ext_id, true);
+		}
+		if (extension.disable) {
+			chrome.management.setEnabled(extension.ext_id, !extension.enabled);
+		}
+		if (extension.uninstall) {
+			chrome.management.uninstall(extension.ext_id);
+		}
+	});
+	data.websites.forEach((website) => {
+		if (website.reload) {
+			chrome.tabs.reload(website.site_id);
+		}
+	});
+}

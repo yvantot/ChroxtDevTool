@@ -1,37 +1,31 @@
 {
-  "manifest_version": 3,
-  "name": "__MSG_ext_name__",
-  "description": "__MSG_ext_description__",
-  "version": "1.0",
-  "default_locale": "en",
-  "homepage_url": "https://www.github.com/yvantot",
-  "permissions": [
-    "management", "tabs", "storage"
-  ],
-  "action": {
-    "default_popup": "/src/popup/popup.html",
-    "default_title": "Chroxt"
-  },
-  "background": {
-    "service_worker": "/src/bg.js"
-  },
-  "content_scripts": [
-    {
-      "js": [
-        "/src/content/content.js"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ],
-  "commands": {
-    "toggle_popup": {
-      "suggested_key": {
-        "default": "Ctrl+Up"
-      },
-      "description": "Toggle popup when popup is clicked"
-    }
-  },
-  "options_page": "/src/options/options.html"
+	"manifest_version": 3,
+	"name": "__MSG_ext_name__",
+	"description": "__MSG_ext_description__",
+	"version": "1.0",
+	"default_locale": "en",
+	"homepage_url": "https://www.github.com/yvantot",
+	"permissions": ["management", "tabs", "storage"],
+	"action": {
+		"default_popup": "/src/popup/popup.html",
+		"default_title": "Chroxt"
+	},
+	"background": {
+		"service_worker": "/src/bg.js"
+	},
+	"content_scripts": [
+		{
+			"js": ["/src/content/content.js"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"commands": {
+		"execute_methods": {
+			"suggested_key": {
+				"default": "Ctrl+Down"
+			},
+			"description": "Execute methods through shortcut"
+		}
+	},
+	"options_page": "/src/options/options.html"
 }

@@ -6,12 +6,19 @@ body {
 #instruction {
   text-align: center;
   margin-bottom: 10px;
+  font-size: 0.9rem;
 }
 
 #toggle-switch {
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+#execute-script {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #header-body {
@@ -34,7 +41,12 @@ body {
 }
 #header-ext p,
 #header-site p {
+  opacity: 50%;
   text-align: center;
+}
+
+#site-body {
+  margin-bottom: 40px;
 }
 
 .ext-list-body {
@@ -89,9 +101,31 @@ body {
   margin-bottom: 20px;
 }
 
+footer {
+  padding: 5px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+footer div {
+  display: flex;
+  justify-content: space-evenly;
+}
+footer div a {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #1717e4;
+}
+
 @media (prefers-reduced-motion: reduce) {
   #toggle-switch {
-    background-color: #ce2525;
+    background-color: #be1919;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -99,14 +133,14 @@ body {
     font-size: 0.9rem;
   }
   #toggle-switch:hover {
-    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
+    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
   }
   #toggle-switch:focus {
-    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
+    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
     color: rgb(211.75, 211.75, 211.75);
   }
   #execute-script {
-    background-color: #ce2525;
+    background-color: #be1919;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -114,16 +148,16 @@ body {
     font-size: 0.9rem;
   }
   #execute-script:hover {
-    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
+    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
   }
   #execute-script:focus {
-    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
+    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
     color: rgb(211.75, 211.75, 211.75);
   }
 }
 @media (prefers-reduced-motion: no-preference) {
   #toggle-switch {
-    background-color: #ce2525;
+    background-color: #be1919;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -131,18 +165,18 @@ body {
     font-size: 0.9rem;
   }
   #toggle-switch:hover {
-    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
+    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
     transform: scale(1.1, 1.1);
-    box-shadow: -1px -1px 2px 1px #ce2525 inset;
+    box-shadow: -1px -1px 2px 1px #be1919 inset;
   }
   #toggle-switch:focus {
-    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
+    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
     transform: scale(1, 1);
     color: rgb(211.75, 211.75, 211.75);
-    box-shadow: 1px 1px 2px 1px rgb(76.2962962963, 13.7037037037, 13.7037037037) inset;
+    box-shadow: 1px 1px 2px 1px rgb(54.7906976744, 7.2093023256, 7.2093023256) inset;
   }
   #execute-script {
-    background-color: #ce2525;
+    background-color: #be1919;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -150,15 +184,15 @@ body {
     font-size: 0.9rem;
   }
   #execute-script:hover {
-    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
+    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
     transform: scale(1.1, 1.1);
-    box-shadow: -1px -1px 2px 1px #ce2525 inset;
+    box-shadow: -1px -1px 2px 1px #be1919 inset;
   }
   #execute-script:focus {
-    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
+    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
     transform: scale(1, 1);
     color: rgb(211.75, 211.75, 211.75);
-    box-shadow: 1px 1px 2px 1px rgb(76.2962962963, 13.7037037037, 13.7037037037) inset;
+    box-shadow: 1px 1px 2px 1px rgb(54.7906976744, 7.2093023256, 7.2093023256) inset;
   }
 }
 @media (prefers-color-scheme: light) {
