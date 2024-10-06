@@ -2,6 +2,7 @@ Option page
     -- Boilerplate
     -- API Reference
     -- Locales tools
+    -- 20 language support
     -- Content script tools
         -- Show data
         -- Operations on storage

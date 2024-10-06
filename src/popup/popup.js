@@ -1,37 +1,36 @@
-// IIFE doesn't work really well without semicolon, thus I'll now use semicolon
+// IIFE doesn't work really well without semicolon, thus I'll now use semicolon from now on
 // My biggest regret is using index to identify my data, I will use dataset next time.
-
-(() => {
-	// Drag check for checkbox
-	(() => {
-		let is_dragging = false;
-		let working_area = document.querySelector("main");
-
-		working_area.addEventListener("mousedown", () => {
-			is_dragging = true;
-		});
-		working_area.addEventListener("mouseup", () => {
-			is_dragging = false;
-		});
-		working_area.addEventListener("mouseover", (e) => {
-			if (e.target.nodeName == "INPUT" && is_dragging) {
-				e.target.checked = !e.target.checked;
-
-				// Specific use-case for storage feature
-				e.target.dispatchEvent(new Event("change"));
-			}
-		});
-	})();
-})();
 
 let data_placeholder = {};
 initialize_data();
+
+// Drag check for checkbox
+(() => {
+	let is_dragging = false;
+	let working_area = document.querySelector("main");
+
+	working_area.addEventListener("mousedown", () => {
+		is_dragging = true;
+	});
+	working_area.addEventListener("mouseup", () => {
+		is_dragging = false;
+	});
+	working_area.addEventListener("mouseover", (e) => {
+		if (e.target.nodeName == "INPUT" && is_dragging) {
+			e.target.checked = !e.target.checked;
+
+			// Specific use-case for storage feature
+			e.target.dispatchEvent(new Event("change"));
+		}
+	});
+})();
 
 // Update the storage after the popup is closed
 document.addEventListener("visibilitychange", () => {
 	chrome.runtime.sendMessage({ message: "set_data", data: data_placeholder });
 });
 
+// Handle button toggle
 document.getElementById("toggle-switch").addEventListener("click", (e) => {
 	data_placeholder.enabled = !data_placeholder.enabled;
 	toggle_button();
@@ -41,7 +40,7 @@ document.getElementById("toggle-switch").addEventListener("click", (e) => {
 function toggle_button() {
 	let toggle_switch = document.getElementById("toggle-switch");
 	data_placeholder.enabled ? (toggle_switch.style.backgroundColor = "#ce2525") : (toggle_switch.style.backgroundColor = "#158938");
-	data_placeholder.enabled ? (toggle_switch.textContent = "Disable") : (toggle_switch.textContent = "Enable");
+	data_placeholder.enabled ? (toggle_switch.textContent = "Disable Icon") : (toggle_switch.textContent = "Enable Icon");
 }
 
 // Update data_placeholder everytime the checkbox is toggled
@@ -125,10 +124,7 @@ function initialize_data(callback = null) {
 				}
 			});
 			document.getElementById("list-ext").appendChild(frag_ext);
-		} else {
-			// Add such empty
 		}
-
 		if (data.websites.length > 0) {
 			let frag_site = document.createDocumentFragment();
 			data.websites.forEach((website, i) => {
@@ -150,8 +146,6 @@ function initialize_data(callback = null) {
 				update_data(reload, "websites", i, "reload");
 			});
 			document.getElementById("list-site").appendChild(frag_site);
-		} else {
-			// Add such empty
 		}
 	});
 }

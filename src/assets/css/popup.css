@@ -125,7 +125,7 @@ footer div a {
 
 @media (prefers-reduced-motion: reduce) {
   #toggle-switch {
-    background-color: #be1919;
+    background-color: #ce2525;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -133,14 +133,14 @@ footer div a {
     font-size: 0.9rem;
   }
   #toggle-switch:hover {
-    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
+    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
   }
   #toggle-switch:focus {
-    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
+    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
     color: rgb(211.75, 211.75, 211.75);
   }
   #execute-script {
-    background-color: #be1919;
+    background-color: #ce2525;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -148,16 +148,16 @@ footer div a {
     font-size: 0.9rem;
   }
   #execute-script:hover {
-    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
+    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
   }
   #execute-script:focus {
-    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
+    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
     color: rgb(211.75, 211.75, 211.75);
   }
 }
 @media (prefers-reduced-motion: no-preference) {
   #toggle-switch {
-    background-color: #be1919;
+    background-color: #ce2525;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -165,18 +165,18 @@ footer div a {
     font-size: 0.9rem;
   }
   #toggle-switch:hover {
-    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
+    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
     transform: scale(1.1, 1.1);
-    box-shadow: -1px -1px 2px 1px #be1919 inset;
+    box-shadow: -1px -1px 2px 1px #ce2525 inset;
   }
   #toggle-switch:focus {
-    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
+    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
     transform: scale(1, 1);
     color: rgb(211.75, 211.75, 211.75);
-    box-shadow: 1px 1px 2px 1px rgb(54.7906976744, 7.2093023256, 7.2093023256) inset;
+    box-shadow: 1px 1px 2px 1px rgb(76.2962962963, 13.7037037037, 13.7037037037) inset;
   }
   #execute-script {
-    background-color: #be1919;
+    background-color: #ce2525;
     color: #fafafa;
     padding: 4px;
     border-radius: 5px;
@@ -184,15 +184,15 @@ footer div a {
     font-size: 0.9rem;
   }
   #execute-script:hover {
-    background-color: rgb(226.6279069767, 39.3720930233, 39.3720930233);
+    background-color: rgb(222.1111111111, 71.8888888889, 71.8888888889);
     transform: scale(1.1, 1.1);
-    box-shadow: -1px -1px 2px 1px #be1919 inset;
+    box-shadow: -1px -1px 2px 1px #ce2525 inset;
   }
   #execute-script:focus {
-    background-color: rgb(122.3953488372, 16.1046511628, 16.1046511628);
+    background-color: rgb(141.1481481481, 25.3518518519, 25.3518518519);
     transform: scale(1, 1);
     color: rgb(211.75, 211.75, 211.75);
-    box-shadow: 1px 1px 2px 1px rgb(54.7906976744, 7.2093023256, 7.2093023256) inset;
+    box-shadow: 1px 1px 2px 1px rgb(76.2962962963, 13.7037037037, 13.7037037037) inset;
   }
 }
 @media (prefers-color-scheme: light) {
