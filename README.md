@@ -6,7 +6,7 @@
     <li>Option page</li>
     <li>Checkbox won't synchronize with data when list's position change</li>
     <li>Firefox support</li>
-    <l1>Local language support</l1>
+    <li>Local language support</li>
     <li>Boilerplates for starting project on extension developing</li>
     <li>Chrome API reference</li>
     <li>Content script tools to control active tab behavior</li>
