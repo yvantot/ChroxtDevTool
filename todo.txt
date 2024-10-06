@@ -1,0 +1,58 @@
+Option page
+    -- Boilerplate
+    -- API Reference
+    -- Locales tools
+
+const data = {
+    "ext_name": {
+        "message": "Chroxt"
+    },
+    "ext_description": {
+        "message": "Extension Developer Tools _ Simplify extension development with automation"
+    },    
+    "toggle_switch": {
+        "message": "Disable"
+    },
+    "title": {
+        "message": "Chroxt"
+    },
+    "description": {
+        "message": "Simplify extension development with automation"
+    },
+    "instruction": {
+        "message": "Choose what happens when the action is clicked"
+    },
+    "title_ext": {
+        "message": "Extension"
+    },
+    "reload_ext": {
+        "message": "Reload"
+    },
+    "disable_ext": {
+        "message": "Disable"
+    },
+    "uninstall_ext": {
+        "message": "Uninstall"
+    },
+    "title_site": {
+        "message": "Website"
+    },
+    "reload_site": {
+        "message": "Refresh"
+    },
+    "api_reference": {
+        "message": "API Reference"
+    },
+    "author_page": {
+        "message": "Support"
+    },
+    "boilerplate": {
+        "message": "Boilerplate"
+    }
+}
+
+let str = ""
+Object.keys(data).forEach(val => {
+    str += `document.getElementById("${val.replace("_", "-")}").textContent = chrome.i18n.getMessage("${val}")\n`
+})
+console.log(str)

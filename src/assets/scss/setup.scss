@@ -1,0 +1,35 @@
+$bg-color-dark: #242424;
+$bg-color-light: #fafafa;
+$link-color-blue: #4e4ee4;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  font-family: Quicksand;
+  font-weight: normal;
+  font-size: 16px;
+}
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+a {
+  text-decoration: none;
+  color: $link-color-blue;
+}
+h1 {
+  font-size: 1.3rem;
+}
+h2 {
+  font-size: 0.8rem;
+}
+input{
+  width: fit-content;
+}
+@font-face {
+  font-family: Quicksand;
+  src: url("../Quicksand.ttf");
+}

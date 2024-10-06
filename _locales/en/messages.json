@@ -1,0 +1,50 @@
+{
+    "ext_name": {
+        "message": "Chroxt"
+    },
+    "ext_description": {
+        "message": "Extension Developer Tools : Simplify extension development with automation"
+    },    
+    "toggle_switch": {
+        "message": "Disable"
+    },
+    "title": {
+        "message": "Chroxt"
+    },
+    "description": {
+        "message": "Simplify extension development with automation"
+    },
+    "instruction": {
+        "message": "When Chroxt is clicked:"
+    },
+    "title_ext": {
+        "message": "Extension"
+    },
+    "reload_ext": {
+        "message": "Reload"
+    },
+    "disable_ext": {
+        "message": "Switch"
+    },
+    "uninstall_ext": {
+        "message": "Delete"
+    },
+    "title_site": {
+        "message": "Website"
+    },
+    "reload_site": {
+        "message": "Refresh"
+    },
+    "execute_script": {
+        "message": "Execute"
+    },
+    "api_reference": {
+        "message": "API Reference"
+    },
+    "author_page": {
+        "message": "Support"
+    },
+    "boilerplate": {
+        "message": "Boilerplate"
+    }
+}

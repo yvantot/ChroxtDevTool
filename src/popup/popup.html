@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../assets/css/setup.css" />
+		<link rel="stylesheet" href="../assets/css/popup.css" />
+		<title>Chroxt</title>
+	</head>
+	<body>
+		<header>
+			<!-- Header -->
+			<button id="toggle-switch"></button>
+			<div id="header-body">
+				<h1 id="title"></h1>
+				<h2 id="description"></h2>
+			</div>
+		</header>
+		<main>
+			<!-- Extension Body -->
+			<p id="instruction"></p>
+			<div id="extension-body">
+				<div id="header-ext" class="ext-list-body">
+					<p id="title-ext"></p>
+					<p id="reload-ext"></p>
+					<p id="uninstall-ext"></p>
+					<p id="disable-ext"></p>
+				</div>
+				<div id="list-ext"></div>
+			</div>
+			<!-- Site Body -->
+			<div id="site-body">
+				<div id="header-site" class="site-list-body">
+					<p id="title-site"></p>
+					<p id="reload-site"></p>
+				</div>
+				<div id="list-site"></div>
+			</div>
+			<button id="execute-script"></button>
+		</main>
+		<footer>
+			<div id="links-body">
+				<a href="../options/options.html" id="api-reference" target="_blank"></a>
+				<a href="#" target="_blank" id="author-page"></a>
+				<a href="../options/options.html" id="boilerplate" target="_blank"></a>
+			</div>
+		</footer>
+		<script src="popup.js"></script>
+		<script src="../../_locales/_scripts/locale_pu.js"></script>
+	</body>
+</html>

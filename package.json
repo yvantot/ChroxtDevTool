@@ -1,0 +1,15 @@
+{
+  "name": "ext_tools",
+  "version": "1.0.0",
+  "main": "background.js",
+  "scripts": {
+    "sass": "sass --watch src/assets/scss/popup.scss:src/assets/css/popup.css src/assets/scss/setup.scss:src/assets/css/setup.css src/assets/scss/option.scss:src/assets/css/option.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.79.4"
+  }
+}
